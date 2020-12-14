@@ -1,21 +1,22 @@
-# -ANSI-COLOR-CODES- #
-Color_Off="\033[0m"
-###-Regular-###
-Red="\033[0;31m"
-Green="\033[0;32m"
-Yellow="\033[0;33m"
-####-Bold-####
+if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
+	command_not_found_handle() {
+		/data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+	}
+fi
 
-function __stat() {
-    if [ $? -eq 0 ]; then
-        echo -en "$Green ✔ $Color_Off "
-    else
-        echo -en "$Red ✘ $Color_Off "
-    fi
-}
+PS1='\033[01;34m\]┌──\[\033[01;32m\]root\[\033[01;34m\]@\[\033[01;31m\]\h\[\033[00;34m\]\[\033[01;34m\]\w\[\033[00;34m\]\[\033[01;32m\]:
+\[\033[01;34m\]└╼\[\033[01;31m\]►\[\033[01;32m\]'
+clear
+echo -e "       \e[34m████████\e[31m╗\e[34m███████\e[31m╗ \e[34m██████\e[31m╗\e[34m██\e[31m╗  \e[34m██\e[31m╗    \e[31m██\e[34m╗  \e[31m██\e[34m╗\e[0m"
+echo -e "       \e[31m╚══\e[34m██\e[31m╔══╝\e[34m██\e[31m╔════╝\e[34m██\e[31m╔════╝\e[34m██\e[31m║ \e[34m ██\e[31m║    \e[34m╚\e[31m██\e[34m╗\e[31m██\e[34m╔╝\e[0m"
+echo -e "       \e[34m   ██\e[31m║   \e[34m█████\e[31m╗  \e[34m██\e[31m║     \e[34m███████\e[31m║ ■■  \e[34m╚\e[31m███\e[34m╔╝ \e[0m"
+echo -e "       \e[34m   ██\e[31m║   \e[34m██\e[31m╔══╝ \e[34m ██\e[31m║     \e[34m██\e[31m╔══\e[34m██\e[31m║     ██\e[34m╔\e[31m██\e[34m╗ \e[0m"
+echo -e "       \e[34m   ██\e[31m║   \e[34m███████\e[31m╗╚\e[34m██████\e[31m╗\e[34m██\e[31m║  \e[34m██\e[31m║    ██\e[34m╔╝ \e[31m██\e[34m╗\e[0m"
+echo -e "       \e[31m   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝    \e[34m╚═╝  ╚═╝\e[0m"
 
-PS1='$(__stat)'
-PS1+="[\t] "
-PS1+="\e[0;33m\u@\h\e[0m:\e[1;34m\w\e[0m \n$ "
-
-export PS1
+MSG='Welcome to Termux Bash'
+for i in {1..23};do
+	echo -ne "\r \e[1;92m 		${MSG:0:$i}"
+	sleep 0.01
+done
+echo ""
